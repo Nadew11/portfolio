@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Naod Asfaw</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#080808;--surf:#0f0f0f;--brd:#1a1a1a;--brdh:#2a2a2a;--txt:#f0f0f0;--muted:#666;--acc:#e8ff3b;--mono:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--brd);position:sticky;top:0;z-index:10}
+.nav-logo{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--txt)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links button{background:none;border:none;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:8px 16px;font-family:'Inter',sans-serif;transition:color .2s;position:relative}
+.nav-links button:hover{color:var(--txt)}
+.nav-links button.active{color:var(--txt)}
+.nav-links button.active::after{content:'';position:absolute;bottom:-1px;left:16px;right:16px;height:1px;background:var(--acc)}
+.page{display:none;padding:64px 48px;max-width:960px;margin:0 auto;animation:fadein .18s ease}
+.page.active{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* HOME */
+.hero-label{font-family:var(--mono);font-size:11px;color:var(--acc);letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.hero-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--acc)}
+.hero-name{font-size:clamp(52px,7vw,88px);font-weight:900;line-height:.93;letter-spacing:-.03em;margin-bottom:28px}
+.hero-name span{color:var(--acc)}
+.hero-bio{font-size:16px;color:var(--muted);max-width:500px;line-height:1.75;margin-bottom:40px}
+.hero-bio strong{color:var(--txt);font-weight:500}
+.hero-cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:64px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:#080808;padding:12px 24px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s}
+.btn-primary:hover{opacity:.85;transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:var(--muted);padding:12px 0;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;border:none;background:none;border-bottom:1px solid var(--brd);cursor:pointer;font-family:'Inter',sans-serif;transition:color .2s,border-color .2s}
+.btn-ghost:hover{color:var(--txt);border-color:var(--txt)}
+.hero-stats{display:flex;gap:44px;padding-top:44px;border-top:1px solid var(--brd);flex-wrap:wrap}
+.stat-num{font-size:28px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.stat-num span{color:var(--acc)}
+.stat-label{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:5px}
+
+/* SECTION HEADERS */
+.s-tag{font-family:var(--mono);font-size:10px;color:var(--acc);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.s-tag::after{content:'';flex:1;height:1px;background:var(--brd);max-width:60px}
+.s-title{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:10px}
+.s-sub{color:var(--muted);font-size:15px;max-width:420px;margin-bottom:48px}
+
+/* RESEARCH */
+.rc{border:1px solid var(--acc);padding:44px;position:relative;background:rgba(232,255,59,.05)}
+.rc-badge{position:absolute;top:-12px;left:44px;background:var(--acc);color:#080808;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px}
+.rc-title{font-size:clamp(18px,2.5vw,30px);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px;max-width:620px}
+.rc-desc{color:#b0b0b0;font-size:14px;line-height:1.8;max-width:620px;margin-bottom:32px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd);border:1px solid var(--brd);margin-bottom:32px}
+.metric{background:var(--bg);padding:22px 26px}
+.mv{font-size:30px;font-weight:900;color:var(--acc);letter-spacing:-.03em;line-height:1}
+.ml{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:5px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.tag{font-family:var(--mono);font-size:10px;color:var(--muted);border:1px solid var(--brdh);padding:4px 9px;letter-spacing:.06em}
+.rc-link{display:inline-flex;align-items:center;gap:8px;color:var(--acc);font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:gap .2s}
+.rc-link:hover{gap:14px}
+
+/* PROJECTS */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--brd)}
+.pc{background:var(--bg);padding:30px;display:flex;flex-direction:column;transition:background .2s;color:inherit}
+.pc:hover{background:var(--surf)}
+.pc:hover .pa{transform:translate(3px,-3px)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.pl{font-family:var(--mono);font-size:9px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;background:rgba(232,255,59,.08);border:1px solid rgba(232,255,59,.2);padding:3px 8px}
+.pa{color:var(--muted);font-size:15px;transition:transform .2s;line-height:1}
+.pn{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:7px}
+.pd{color:var(--muted);font-size:13px;line-height:1.65;flex:1;margin-bottom:18px}
+.ps span{font-family:var(--mono);font-size:9px;color:#555;letter-spacing:.06em;margin-right:7px}
+
+/* ABOUT */
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.atext{font-size:15px;color:#aaa;line-height:1.85}
+.atext strong{color:var(--txt);font-weight:600}
+.atext p+p{margin-top:16px}
+.sk-title{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin:28px 0 12px}
+.sk-list{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:10px;color:var(--txt);background:var(--surf);border:1px solid var(--brdh);padding:5px 11px;letter-spacing:.04em}
+.creds{display:flex;flex-direction:column;border:1px solid var(--brd)}
+.cred{padding:18px 22px;border-bottom:1px solid var(--brd);display:flex;align-items:flex-start;gap:12px}
+.cred:last-child{border-bottom:none}
+.ci{font-size:15px;margin-top:1px;flex-shrink:0}
+.ct{font-size:13px;font-weight:600;margin-bottom:2px}
+.cs{font-size:12px;color:var(--muted)}
+
+/* CONTACT */
+.cinner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.ch{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+.csub{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:28px}
+.clinks{display:flex;flex-direction:column;border:1px solid var(--brd)}
+.cl{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--brd);color:var(--txt);transition:background .2s}
+.cl:last-child{border-bottom:none}
+.cl:hover{background:var(--surf)}
+.cl:hover .lar{transform:translate(3px,-3px)}
+.linfo{display:flex;align-items:center;gap:12px}
+.lp{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;width:68px}
+.lv{font-size:13px;font-weight:500}
+.lar{color:var(--muted);font-size:13px;transition:transform .2s}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--brdh)}
+
+@media(max-width:680px){
+  nav{padding:14px 20px}
+  .page{padding:40px 20px}
+  .pgrid{grid-template-columns:1fr}
+  .agrid,.cinner{grid-template-columns:1fr;gap:36px}
+  .metrics{grid-template-columns:1fr}
+  .hero-stats{gap:28px}
+  .nav-links button{padding:8px 10px;font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="show('home')">Naod Asfaw</div>
+  <ul class="nav-links">
+    <li><button onclick="show('home')" id="btn-home" class="active">Home</button></li>
+    <li><button onclick="show('research')" id="btn-research">Research</button></li>
+    <li><button onclick="show('projects')" id="btn-projects">Projects</button></li>
+    <li><button onclick="show('about')" id="btn-about">About</button></li>
+    <li><button onclick="show('contact')" id="btn-contact">Contact</button></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero-label">Data Science &amp; Business Analytics</div>
+  <h1 class="hero-name">Naod<br><span>Asfaw.</span></h1>
+  <p class="hero-bio">I build <strong>quantitative systems</strong> and <strong>data pipelines</strong> that uncover real edges. Augustana College, <strong>Presidential Scholar</strong>, 3.6 GPA. Graduating December 2026.</p>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="show('research')">See My Research →</button>
+    <button class="btn-ghost" onclick="window.open('https://github.com/Nadew11','_blank')">github.com/Nadew11 ↗</button>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">76<span>K+</span></div><div class="stat-label">Contracts Analyzed</div></div>
+    <div><div class="stat-num">2<span>.37</span></div><div class="stat-label">Sharpe Ratio</div></div>
+    <div><div class="stat-num">3<span>.6</span></div><div class="stat-label">GPA</div></div>
+    <div><div class="stat-num">Dec<span> '26</span></div><div class="stat-label">Graduating</div></div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div class="page" id="page-research">
+  <div class="s-tag">Featured Research</div>
+  <h2 class="s-title">Prediction Market<br>Microstructure</h2>
+  <p class="s-sub">Original quantitative research on Polymarket. Near SSRN-ready.</p>
+  <div class="rc">
+    <div class="rc-badge">Working Paper</div>
+    <h3 class="rc-title">Discovering a Measurement Artifact in Polymarket's lastTradePrice</h3>
+    <p class="rc-desc">Analyzed 76,000+ resolved Polymarket contracts and identified a systematic <strong style="color:#f0f0f0">lastTradePrice measurement artifact</strong> — a structural bias in how final prices are recorded. Exploiting this artifact, I built a contrarian mean-reversion strategy achieving a <strong style="color:#f0f0f0">Sharpe ratio of 2.37</strong>, outperforming naive market benchmarks. The pipeline spans data collection, artifact characterization, backtesting, and out-of-sample validation.</p>
+    <div class="metrics">
+      <div class="metric"><div class="mv">76K+</div><div class="ml">Resolved Contracts</div></div>
+      <div class="metric"><div class="mv">2.37</div><div class="ml">Sharpe Ratio</div></div>
+      <div class="metric"><div class="mv">SSRN</div><div class="ml">Near Submission</div></div>
+    </div>
+    <div class="tags">
+      <span class="tag">Prediction Markets</span>
+      <span class="tag">Market Microstructure</span>
+      <span class="tag">Mean-Reversion</span>
+      <span class="tag">Quantitative Finance</span>
+      <span class="tag">Python</span>
+      <span class="tag">Jupyter</span>
+    </div>
+    <a href="https://github.com/Nadew11/polymarket-research" target="_blank" class="rc-link">View Repository →</a>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="page-projects">
+  <div class="s-tag">GitHub Projects</div>
+  <h2 class="s-title">Built Things</h2>
+  <p class="s-sub">Selected work from public repositories.</p>
+  <div class="pgrid">
+    <a href="https://github.com/Nadew11/hopper-complaint-research" target="_blank" class="pc">
+      <div class="ph"><span class="pl">Python</span><span class="pa">↗</span></div>
+      <div class="pn">Hopper Complaint Research</div>
+      <p class="pd">Modular pipeline collecting and analyzing public consumer complaints about Hopper. Hidden-hotel-fee flagging with NLP, powered by DuckDB, spaCy/transformers, and Plotly Dash.</p>
+      <div class="ps"><span>DuckDB</span><span>spaCy</span><span>Transformers</span><span>Plotly Dash</span></div>
+    </a>
+    <a href="https://github.com/Nadew11/NYC-housing-data-project-" target="_blank" class="pc">
+      <div class="ph"><span class="pl">Data Analysis</span><span class="pa">↗</span></div>
+      <div class="pn">NYC Housing Data Project</div>
+      <p class="pd">Exploratory and statistical analysis of New York City housing market data. Pricing trends, borough-level patterns, and market dynamics.</p>
+      <div class="ps"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
+    </a>
+    <a href="https://github.com/Nadew11/Data332-R-projects-" target="_blank" class="pc">
+      <div class="ph"><span class="pl">R</span><span class="pa">↗</span></div>
+      <div class="pn">Data 332 — Statistical Modeling</div>
+      <p class="pd">Statistical modeling and visualization in R. Covers regression, hypothesis testing, and publication-quality figures using ggplot2 and tidyverse.</p>
+      <div class="ps"><span>R</span><span>ggplot2</span><span>tidyverse</span></div>
+    </a>
+    <a href="https://github.com/Nadew11/python-for-data-analysis" target="_blank" class="pc">
+      <div class="ph"><span class="pl">Python</span><span class="pa">↗</span></div>
+      <div class="pn">Python Data Analysis Suite</div>
+      <p class="pd">Comprehensive Python data analysis spanning EDA, feature engineering, predictive modeling, and visualization. A living reference codebase.</p>
+      <div class="ps"><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>Seaborn</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="s-tag">About</div>
+  <div class="agrid">
+    <div>
+      <h2 class="s-title" style="margin-bottom:24px">Who I Am</h2>
+      <div class="atext">
+        <p>I'm a <strong>Data Science and Business Analytics</strong> student at Augustana College — a <strong>Presidential Scholar</strong> with a 3.6 GPA, graduating December 2026.</p>
+        <p>I build pipelines, not slides. My work spans quantitative finance, NLP-driven consumer research, and market microstructure. I'm drawn to problems where <strong>data has more signal than people realize</strong>.</p>
+        <p>Currently deep in prediction market research, with a working paper on Polymarket pricing artifacts nearing SSRN submission.</p>
+      </div>
+      <div class="sk-title">Stack</div>
+      <div class="sk-list">
+        <span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span><span class="chip">DuckDB</span><span class="chip">spaCy</span><span class="chip">Plotly</span><span class="chip">ggplot2</span><span class="chip">Jupyter</span><span class="chip">Git</span>
+      </div>
+    </div>
+    <div class="creds">
+      <div class="cred"><div class="ci">🎓</div><div><div class="ct">Augustana College</div><div class="cs">B.S. Data Science &amp; Business Analytics · Dec 2026</div></div></div>
+      <div class="cred"><div class="ci">⭐</div><div><div class="ct">Presidential Scholar</div><div class="cs">Merit-based academic distinction</div></div></div>
+      <div class="cred"><div class="ci">📊</div><div><div class="ct">GPA: 3.6 / 4.0</div><div class="cs">Dean's List standing</div></div></div>
+      <div class="cred"><div class="ci">📝</div><div><div class="ct">Working Paper</div><div class="cs">Polymarket microstructure · Near SSRN submission</div></div></div>
+      <div class="cred"><div class="ci">⚡</div><div><div class="ct">Open to Opportunities</div><div class="cs">Quant research · Data science · Analytics roles</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="cinner">
+    <div>
+      <div class="s-tag">Contact</div>
+      <h2 class="ch">Let's<br>Talk.</h2>
+      <p class="csub">Open to quant research roles, data science internships, and conversations about prediction markets, pipelines, or interesting problems.</p>
+      <a href="mailto:nadewalem@gmail.com" class="btn-primary" style="display:inline-flex">Send an Email →</a>
+    </div>
+    <div class="clinks">
+      <a href="mailto:nadewalem@gmail.com" class="cl"><div class="linfo"><span class="lp">Email</span><span class="lv">nadewalem@gmail.com</span></div><span class="lar">↗</span></a>
+      <a href="https://github.com/Nadew11" target="_blank" class="cl"><div class="linfo"><span class="lp">GitHub</span><span class="lv">github.com/Nadew11</span></div><span class="lar">↗</span></a>
+      <a href="https://linkedin.com/in/naod-asfaw" target="_blank" class="cl"><div class="linfo"><span class="lp">LinkedIn</span><span class="lv">linkedin.com/in/naod-asfaw</span></div><span class="lar">↗</span></a>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.getElementById('btn-' + id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
