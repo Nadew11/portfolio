@@ -148,8 +148,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
 <!-- RESEARCH -->
 <div class="page" id="page-research">
   <div class="s-tag">Featured Research</div>
-  <h2 class="s-title">Prediction Market<br>Microstructure</h2>
-  <p class="s-sub">Original quantitative research on Polymarket. Near SSRN-ready.</p>
+  <h2 class="s-title">Featured<br>Research</h2>
+  <p class="s-sub">Two original projects — prediction-market microstructure and AI-agent evaluation.</p>
   <div class="rc">
     <div class="rc-badge">Working Paper</div>
     <h3 class="rc-title">Discovering a Measurement Artifact in Polymarket's lastTradePrice</h3>
@@ -168,6 +168,26 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
       <span class="tag">Jupyter</span>
     </div>
     <a href="https://github.com/Nadew11/polymarket-research" target="_blank" class="rc-link">View Repository →</a>
+  </div>
+
+  <div class="rc" style="margin-top:36px">
+    <div class="rc-badge">AI Agent Eval</div>
+    <h3 class="rc-title">Stress-Testing AI Agents on Silent Data-Science Bugs</h3>
+    <p class="rc-desc">Designed and built an <strong style="color:#f0f0f0">8-task evaluation suite</strong> measuring whether AI coding agents can detect, diagnose, and fix <strong style="color:#f0f0f0">silent</strong> data-quality and ML-methodology bugs — pipelines that run without error yet report inflated metrics (target leakage, temporal leakage, join inflation, schema ambiguity). Each task stacks multiple defects behind deterministic, seeded verifiers. I ran ≥3 trials per task against <strong style="color:#f0f0f0">gemini-3.5-flash</strong> through the Harbor / terminus-2 harness, with a full failure analysis grounded in agent-eval literature (DAB, MMTU, AutoDCWorkflow, Shankar et al.).</p>
+    <div class="metrics">
+      <div class="metric"><div class="mv">8</div><div class="ml">Tabular ML Tasks</div></div>
+      <div class="metric"><div class="mv">5</div><div class="ml">Failure Mechanisms</div></div>
+      <div class="metric"><div class="mv">87.5%</div><div class="ml">Model pass@3</div></div>
+    </div>
+    <div class="tags">
+      <span class="tag">AI Evaluation</span>
+      <span class="tag">LLM Agents</span>
+      <span class="tag">Gemini 3.5 Flash</span>
+      <span class="tag">Data Leakage</span>
+      <span class="tag">Harbor</span>
+      <span class="tag">Python</span>
+    </div>
+    <a href="https://github.com/Nadew11/ieee-fraud-benchmark" target="_blank" class="rc-link">View Repository →</a>
   </div>
 </div>
 
